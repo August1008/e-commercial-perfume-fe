@@ -1,0 +1,14 @@
+<h2 class="text-3xl font-bold underline">Welcome</h2>
+<ul>
+  @for (product of products; track product.id) {
+  <li>{{ product.description }}</li>
+  }
+</ul>
+
+<div class="grid grid-cols-4 gap-4">
+    @for (product of products; track product.id) {
+        <mat-card appearance="raised">
+            <img src="assets{{product.pictureUrl}}">
+        </mat-card>
+    }
+</div>
