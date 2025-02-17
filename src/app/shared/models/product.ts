@@ -5,6 +5,6 @@ export interface Product {
     price: number
     pictureUrl: string
     brand: string
-    quantityInStock: number
+    quantity: number
     updatedDate: Date
 }
