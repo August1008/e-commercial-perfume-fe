@@ -2,10 +2,13 @@
     <div class="flex align-middle items-center justify-between max-w-screen-2xl mx-auto">
         <a href="/"><img src="assets/images/velvet-aura-high-resolution-logo.png" alt="logo" class="max-h-24 w-42"></a>
         
-        <nav class="flex gap-7 my-2 uppercase text-xl">
-            <a href="#" class="duration-200 ease-in-out hover:scale-110 hover:underline">Home</a>
-            <a href="#" class="duration-200 ease-in-out hover:scale-110 hover:underline">Shop</a>
-            <a href="#" class="duration-200 ease-in-out hover:scale-110 hover:underline">Contact</a>
+        <nav class="flex gap-7 my-2 uppercase text-2xl">
+            <a routerLink="/" class="duration-200 ease-in-out hover:scale-110 hover:underline"
+            routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
+            <a routerLink="/shop" class="duration-200 ease-in-out hover:scale-110 hover:underline"
+            routerLinkActive="active">Shop</a>
+            <a href="#" class="duration-200 ease-in-out hover:scale-110 hover:underline"
+            routerLinkActive="active">Contact</a>
         </nav>
         <div class="flex gap-4 items-center">
             <a matBadge="5" matBadgeSize="medium" href="#" class="duration-150 ease-in-out hover:scale-105 text-gray-500">

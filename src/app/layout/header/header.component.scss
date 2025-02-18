@@ -4,3 +4,9 @@ button.mat-button{
     font-family: Arial, Helvetica, sans-serif;
     
 }
+
+a{
+    &.active{
+        color: rgb(114, 36, 8);
+    }
+}
