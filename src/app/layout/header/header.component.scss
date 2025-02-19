@@ -1,9 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 button.mat-button{
     border-radius: 32px;
     font-size: 16px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--text-font);
     
 }
+
+header{
+    font-family: var(--header-font);
+}
+
 
 a{
     &.active{
