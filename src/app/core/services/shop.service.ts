@@ -8,7 +8,7 @@ import { shopParams } from '../../shared/models/shopParams';
   providedIn: 'root'
 })
 export class ShopService {
-  baseUrl: string = 'https://localhost:44359/api/'
+  baseUrl: string = 'https://velvet-aura-be-ffexcacahcdcdtav.southeastasia-01.azurewebsites.net/api/'
   private http = inject(HttpClient);
 
   types: string[] = [];
