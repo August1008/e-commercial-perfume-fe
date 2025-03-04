@@ -3,12 +3,13 @@ import { inject, Injectable } from '@angular/core';
 import { Pagination } from '../../shared/models/pagination';
 import { Product } from '../../shared/models/product';
 import { shopParams } from '../../shared/models/shopParams';
+import { config } from '../../shared/configs/config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShopService {
-  baseUrl: string = 'https://velvet-aura-be-ffexcacahcdcdtav.southeastasia-01.azurewebsites.net/api/'
+  baseUrl: string = config.BASE_URL;
   private http = inject(HttpClient);
 
   types: string[] = [];
