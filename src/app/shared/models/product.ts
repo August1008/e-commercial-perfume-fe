@@ -5,6 +5,7 @@ export interface Product {
     price: number
     pictureUrl: string
     brand: string
+    type: string
     quantity: number
     updatedDate: Date
 }
