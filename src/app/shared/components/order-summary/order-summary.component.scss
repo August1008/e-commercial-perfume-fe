@@ -1,0 +1,9 @@
+
+@tailwind components;
+@tailwind utilities;
+
+.cart{
+    font-family: var(--cart-font);
+    font-weight: 600 !important;
+    font-style: normal;
+}
