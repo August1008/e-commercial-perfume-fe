@@ -8,13 +8,13 @@
             </a>
         <div class="flex items-center justify-between order-3">
             <div class="flex items-center align-middle gap-3">
-                <button mat-icon-button>
+                <button mat-icon-button (click)="this.cartService.removeOneItem(cartItem())" >
                     <mat-icon class="text-red-500">remove</mat-icon>
                 </button>
 
                 <div class="font-semibold text-xl mb-1 ">{{cartItem().quantity}}</div>
 
-                <button mat-icon-button>
+                <button mat-icon-button (click)="this.cartService.addOneItem(cartItem())">
                     <mat-icon class="text-green-500">add</mat-icon>
                 </button>
             </div>
@@ -27,7 +27,7 @@
                 {{cartItem().productName}}
             </a>
             <div class="flex items-center gap-4">
-                <button mat-button color="warn">
+                <button mat-button color="warn" (click)="this.cartService.removeItemFromCart(cartItem().productId)">
                     <mat-icon>delete</mat-icon>
                     Delete
                 </button>

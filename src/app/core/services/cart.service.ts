@@ -14,7 +14,21 @@ export class CartService {
   cart = signal<Cart | null>(null);
   itemsCount = computed(() => {
     return this.cart()?.cartItems.reduce((sum, item) => sum + item.quantity, 0);
-  })
+  });
+
+  totals = computed(() => {
+    const cart = this.cart();
+    if (!cart) return null;
+    const subtotal = cart.cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const discount = 0;
+    const shippingfee = cart.cartItems.length > 0 ? 10 : 0;
+    return {
+      subtotal,
+      discount,
+      shippingfee,
+      amountTotal: subtotal + shippingfee - discount
+    };
+  });
   
   constructor() { }
 
@@ -51,8 +65,44 @@ export class CartService {
       }
     }
     this.setCart(cart);
-    
   }
+
+  removeItemFromCart(productId: string) {
+    const cart = this.cart();
+    if (cart) {
+      cart.cartItems = cart.cartItems.filter(i => i.productId !== productId);
+      this.setCart(cart);
+    }
+  }
+
+  addOneItem(item: CartItem): CartItem {
+    const cart = this.cart();
+    if (cart) {
+      const index = cart.cartItems.findIndex(i => i.productId === item.productId);
+      if (index >= 0) {
+        cart.cartItems[index].quantity++;
+        this.setCart(cart);
+        return cart.cartItems[index];
+      }
+    }
+    return item;
+  }
+
+  removeOneItem(item: CartItem): CartItem {
+    const cart = this.cart();
+    if (cart) {
+      const index = cart.cartItems.findIndex(i => i.productId === item.productId);
+      if (index >= 0) {
+        cart.cartItems[index].quantity--;
+        if (cart.cartItems[index].quantity === 0)
+          cart.cartItems.splice(index, 1);
+        this.setCart(cart);
+        return cart.cartItems[index];
+      }
+    }
+    return item;
+  }
+
   mapProductToCartItem(item: Product): CartItem {
     return {
       productId: item.id,
