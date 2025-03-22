@@ -6,7 +6,11 @@ import { TestErrorComponent } from './features/test-error/test-error.component';
 import { CartComponent } from './features/cart/cart.component';
 
 export const routes: Routes = [
-    { path: "", component: ShopComponent },
+    {
+        path: "", children: [
+            { path: "Male", component: ShopComponent },
+            { path: "Female", component: ShopComponent }
+    ], component: ShopComponent },
     { path: "shop", component: ShopComponent },
     { path: "cart", component: CartComponent },
     { path: "shop/:id", component: ProductDetailComponent },

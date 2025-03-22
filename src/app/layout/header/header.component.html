@@ -1,14 +1,15 @@
 <header class="border-b shadow-md p-2 w-full header-font fixed max-h-24 top-0 z-50 bg-white">
     <div class="flex align-middle items-center justify-between max-w-screen-2xl mx-auto">
         <a href="/"><img src="assets/images/velvet-aura-high-resolution-logo.png" alt="logo" class="max-h-20 w-32"></a>
-        
-        <nav class="flex gap-7 my-2 uppercase text-2xl">
-            <a routerLink="/" class="duration-200 ease-in-out hover:scale-110 "
-            >Velvet Aura</a>
-            <!-- <a routerLink="/shop" class="duration-200 ease-in-out hover:scale-110 "
-            routerLinkActive="active">Shop</a> -->
-            <!-- <a routerLink="/test-error" class="duration-200 ease-in-out hover:scale-110 "
-            routerLinkActive="active">Contact</a> -->
+        <!-- <a routerLink="/" class="duration-200 ease-in-out hover:scale-110 "
+            >Velvet Aura</a> -->
+        <nav class="flex gap-7 my-2 text-lg">
+            <a routerLink="/Male"
+            routerLinkActive="active" 
+            class="duration-200 ease-in-out hover:scale-110 hover:underline underline-offset-8">Male</a>
+            <a routerLink="/Female" 
+            routerLinkActive="active" 
+            class="duration-200 ease-in-out hover:scale-110 hover:underline underline-offset-8">Female</a>
         </nav>
         <div class="flex gap-4 items-center w-32">
             <a matBadge="{{cartService.itemsCount()}}" 

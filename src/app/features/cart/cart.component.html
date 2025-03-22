@@ -2,6 +2,9 @@
     <div class="mx-auto max-w-screen-xl">
         <div class="flex w-full items-start gap-6 mt-32">
             <div class="w-3/4">
+                @if (cartService.itemsCount()!.valueOf() <= 0) {
+                    <div><h3>Nothing in your cart!</h3> </div>
+                } 
                 @for (item of cartService.cart()?.cartItems; track item.productId) {
                     <app-cart-item [cartItem]="item"></app-cart-item>
                 }

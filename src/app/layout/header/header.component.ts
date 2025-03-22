@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatBadge } from '@angular/material/badge';
@@ -19,6 +19,12 @@ import { CartService } from '../../core/services/cart.service';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements OnInit {
+
+  activeRouterLink = signal<string>('');
+  activeRouterLinkValue = computed(() => {
+    return this.activeRouterLink().valueOf();
+  })
+
   ngOnInit(): void {
     const cart_id = localStorage.getItem('cart_id');
     if (cart_id) {
@@ -26,5 +32,11 @@ export class HeaderComponent implements OnInit {
     }
   }
   cartService = inject(CartService);
+
+  public activateRouterLink(routerLink: string) {
+    this.activeRouterLink.update((value => routerLink));
+    console.log(this.activeRouterLink());
+    console.log(this.activeRouterLinkValue())
+  }
 
 }
